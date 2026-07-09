@@ -1,3 +1,4 @@
+# Ver 1.0
 ### Step 1: get a Kaplan-Maier figure of overal survival 
 preferably a good quality, high resolution
 you may download that in jpeg, png etc.
@@ -9,3 +10,5 @@ use atomatic tracing or do it manually
 ### Step 5: reconstruct IPD
 ### Step 6: fit standard parametric models
 ### Step 7: choose the best model for inspection
+
+# Ver 2.0 add some genAI
