@@ -1,5 +1,7 @@
 # Ver 1.0
-What I had in my mind was OS curves of typical oncology drug in a non-curative setting (i.e. metastatic disease). These together with PFS curves, utilities and dosing & cost information are often used to inform Partitioned Survival Health Economic Model. The first step is to focus on modelling gained life years. Mechanistic cost calculation does not provide such artistic satisfaction.
+What I had in my mind was OS curves of typical oncology drug in a non-curative setting (i.e. metastatic disease). These together with PFS curves, utilities and dosing & cost information are often used to inform Partitioned Survival Health Economic Model. The first step is to focus on modelling gained life years. Mechanistic cost calculation does not provide such artistic satisfaction, which is needed during the summer holiday.
+
+While the app is created by the genAI tools of one of the tech giants the app itself is deterministic. In practise it is coded using R Shiny.
 
 ### Step 1: get a Kaplan-Maier figure of overal survival OS & load the figure into app
 preferably a good quality, high resolution figure of decent size.
