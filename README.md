@@ -2,14 +2,14 @@
 What I had in my mind was OS curves of typical oncology drug in a non-curative setting (i.e. metastatic disease). These together with PFS curves, utilities and dosing & cost information are often used to inform Partitioned Survival Health Economic Model.
 
 ### Step 1: get a Kaplan-Maier figure of overal survival  & load the figure into app
-preferably a good quality, high resolution
-you may download that in jpeg, png etc.
+preferably a good quality, high resolution figure of decent size.
+You may download that in jpeg, png etc.
 
 <img width="396" height="462" alt="image" src="https://github.com/user-attachments/assets/98c5c82e-2538-4975-a69d-3b44eb94c2d0" />
 
  
 ### Step 2: calibrate the figure
-if automatic calibration fails do it manually by setting origo, xmax and ymax
+if automatic calibration fails do it manually by setting origin, X-max and Y-max
 
 <img width="1602" height="666" alt="image" src="https://github.com/user-attachments/assets/bb328e04-7916-45a4-bf33-f4e0e069b6e7" />
 
