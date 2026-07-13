@@ -7,6 +7,9 @@ While the app is created by the genAI tools of one of the tech giants the app it
 preferably a good quality, high resolution figure of decent size.
 You may download that in jpeg, png etc. The app allows comparison of two curves from the same figure. This is to say comparison is just to the control group of the same trial and no indirect comparisons are possible at the moment. 
 
+The sample picture is automaticlly generated. Here are some other random alternatives:
+
+
 <img width="396" height="462" alt="image" src="https://github.com/user-attachments/assets/98c5c82e-2538-4975-a69d-3b44eb94c2d0" />
 
  
