@@ -37,4 +37,7 @@ Choose one of the models (for the treatment and for the control, does not need t
 
 Now you can see some statistics calculated. How many life years are gained over the extrapolation horizon in AUC interpretation (both undiscounted and discounted). What is the difference in modelled medians.
 
+<img width="497" height="732" alt="image" src="https://github.com/user-attachments/assets/ecde3a57-8c46-4912-921d-93e73f23899e" />
+
+
 # Ver 2.0 add some genAI
