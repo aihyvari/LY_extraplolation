@@ -42,10 +42,9 @@ Choose one of the models (for the treatment and for the control, does not need t
 <img width="971" height="742" alt="image" src="https://github.com/user-attachments/assets/f402dba8-21a7-4c7f-b9f1-8a261480b207" />
 
 Now you can see some statistics calculated. How many life years are gained over the extrapolation horizon in AUC interpretation (both undiscounted and discounted). This is the Restricted Mean Survival Time RMST: 
-```markdown
-$$
+```math
 RMST(\tau)=\int_0^\tau S(t)\,dt
-$$
+```
 
 where the t refers to extrapolation horizon length. Also the difference in modelled medians is shown.
 Public opinion is often that just a few months can be gained with the new treatment. With IO treatments this statement is somewhat imprecice. Many patients or even majority of them have negligble benefit, but some share 20-40 % can have very long lasting effect. So one can either have significant benefit or almost none at all. 
