@@ -1,9 +1,9 @@
 # Ver 1.0
-What I had in my mind was OS curves of typical oncology drug in a non-curative setting (i.e. metastatic disease). These together with PFS curves, utilities and dosing & cost information are often used to inform Partitioned Survival health economic Model (PSM). The first step is to focus on modelling gained life years, which is arguably the most important driver of the end result in the PSM. Mechanistic cost calculation does not provide such artistic satisfaction, which is needed during the summer holiday.
+What I had in my mind was OS curves of a typical oncology drug in a non-curative setting (i.e. metastatic disease). Together with PFS curves, utilities and dosing & cost information these are often used to inform a Partitioned Survival Model in health economic evaluations. The first step is to focus on modelling life years gained, which is arguably the most important driver of the final result in the PSM. Mechanistic cost calculation does not provide such artistic satisfaction, which is needed during the summer holiday.
 
-While the app is created by the genAI tools of one of the tech giants the app itself is deterministic. These tools are proprietary and I have made the purchase by myself. In practise the code is R using Shiny. 
+While the app is created using the genAI tools of one of the tech giants the app itself is deterministic. These tools are proprietary and I purchased the access by myself. In practice the code is R using Shiny. 
 
-### Step 1: get a Kaplan-Maier figure of overal survival OS & load the figure into app
+### Step 1: get a Kaplan-Meier figure of overall survival OS & load the figure into the app
 preferably a good quality, high resolution figure of decent size.
 You may download that in jpeg, png etc. The app allows comparison of two curves from the same figure. This is to say comparison is just to the control group of the same trial and no indirect comparisons are possible at the moment. 
 
