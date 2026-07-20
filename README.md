@@ -1,5 +1,7 @@
 # Ver 1.0
-What I had in my mind was OS curves of a typical oncology drug in a non-curative setting (i.e. metastatic disease). Together with PFS curves, utilities and dosing & cost information these are often used to inform a Partitioned Survival Model in health economic evaluations. The first step is to focus on modelling life years gained, which is arguably the most important driver of the final result in the PSM. Mechanistic cost calculation does not provide such artistic satisfaction, which is needed during the summer holiday.
+What I had in my mind was OS curves of a typical oncology drug in a non-curative setting (i.e. metastatic disease). Together with PFS curves, utilities and dosing & cost information these are often used to inform a Partitioned Survival Model in health economic evaluations. In curative setting the modelling may be a bit different. 
+
+The first step is to focus on modelling life years gained, which is arguably the most important driver of the final result in the PSM. Mechanistic cost calculation does not provide such artistic satisfaction, which is needed during the summer holiday.
 
 While the app is created using the genAI tools of one of the tech giants the app itself is deterministic. These tools are proprietary and I purchased the access by myself. I also run the tools using my private laptop. In practice the code is R using Shiny. 
 
@@ -32,6 +34,7 @@ From the previous traced K-M curves indivial patient data are recreated. This da
 
 ### Step 5: fit standard parametric models
 Standard parametric models are fitted to the IPD and extrapolated. You may set the extrapolation horizon. The default is 120 and the assumption is that the time units are in months (i.e. 120 corresponds to 10 years). AIC and BIC values are shown to describe the statistical fit of each of models. No flexible spline or other more complex models are avaibable thus far.
+
 You may implement tail trimming when fitting the models. Typically the tail of the K-M curve can have a large effect on model fit and extrapolation. However, the shape of the tail may be based on small number of patients at risk. Hence, the tail may be trimmed and left it out from model fitting. The effect of tail trimming can be evaluated in the next sheet. 
 
 <img width="1775" height="755" alt="image" src="https://github.com/user-attachments/assets/ce3fb795-c06d-4cc0-b3fa-2e36cbd2b947" />
@@ -48,7 +51,7 @@ RMST(\tau)=\int_0^\tau S(t)\,dt
 
 where the t refers to extrapolation horizon length and S is the survival function. Thus RMST is the area under survival curve up to the extrapolation horizon. Restricted refers to the fact that not all events or censoring have been observed during the horizon (Y>0 in the curve). Also the difference in modelled medians is shown.
 
-In general disscussion it is often stated that just a few months can be gained with the new treatment. With IO treatments this statement is somewhat imprecice. Many patients or even majority of them have negligble benefit, but some share 20-40 % can have very long lasting effect. So one can either have significant benefit or almost none at all.   This kind of setting leads to a situation where RMST can be significantly larger than the difference in the medians. Implicit assumption with extrapolation is that there are no new drivers of thge result after observations end. Basically this often means that if the treatment and control curves are separateted during observational period they will stay that separated during extrapolation period. Obviously these conclusions are based on simplification & generalization. 
+In general disscussion it is often stated that just a few months can be gained with the new treatment. With IO treatments this statement is somewhat imprecice. Many patients or even majority of them have negligble benefit, but some share 20-40 % can have very long lasting effect. So one can either have significant benefit or almost none at all. This kind of setting leads to a situation where RMST can be significantly larger than the difference in the medians. Implicit assumption with extrapolation is that there are no new drivers of thge result after observations end. Basically this often means that if the treatment and control curves are separateted during observational period they will stay that separated during extrapolation period. Obviously these conclusions are based on simplification & generalization. 
 
 <img width="497" height="732" alt="image" src="https://github.com/user-attachments/assets/ecde3a57-8c46-4912-921d-93e73f23899e" />
 
