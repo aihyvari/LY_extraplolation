@@ -13,7 +13,7 @@ The sample picture is automaticlly generated. Here are some other random alterna
 
 EX1
 EX2
-More of these below...
+More about these below...
 
 <img width="337" height="393" alt="loading" src="https://github.com/user-attachments/assets/98c5c82e-2538-4975-a69d-3b44eb94c2d0" />
 
