@@ -7,8 +7,9 @@ While the app is created using the genAI tools of one of the tech giants the app
 
 ### Step 1: get a Kaplan-Meier figure of overall survival OS & load the figure into the app
 preferably a good quality, high resolution figure of decent size.
-You may download that in jpeg, png etc. The app allows comparison of two curves from the same figure. This is to say comparison is just to the control group of the same trial and no indirect comparisons are possible at the moment. 
+You may download that in jpeg, png etc. In practise you may need to save captured image into your computer and use the option "Upload Local Image" instead of option "Load from URL". The latter option needs more refinement as URLs typically contain other content besides the target image. Using a standard screenshot capture tool You may set the boundaries manually, save it temporarely to Your compure and upload from there. 
 
+The app allows comparison of two curves from the same figure. This is to say comparison is just to the control group of the same trial and no indirect comparisons are possible at the moment. 
 The sample picture is automaticlly generated. Here are some other random alternatives:
 
 EX1
@@ -29,8 +30,11 @@ use atomatic curve tracing or do it manually. Trace treatment and control curves
 <img width="1627" height="742" alt="image" src="https://github.com/user-attachments/assets/92f1982b-25da-4096-bc2b-64abef881ae0" />
 
 
-### Step 4: reconstruct IPD
+### Step 4: reconstruct IPD - this is the step that has to be done before moving on.
 From the previous traced K-M curves indivial patient data are recreated. This data is then used for modelling.
+Please specify also the number of patients in the beginning. This information usually appears as a number in the figure. However, this information is not automatically extracted. 
+
+<img width="297" height="311" alt="image" src="https://github.com/user-attachments/assets/e555ff14-9f88-40e7-a763-77dc8e969d59" />
 
 <img width="360" height="85" alt="image" src="https://github.com/user-attachments/assets/322ba6a2-6f08-4142-ae23-575ad5d6351b" />
 
