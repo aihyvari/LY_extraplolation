@@ -3,7 +3,8 @@ What I had in my mind was OS curves of a typical oncology drug in a non-curative
 
 The first step is to focus on modelling life years gained, which is arguably the most important driver of the final result in the PSM. Mechanistic cost calculation does not provide such artistic satisfaction, which is needed during the summer holiday.
 
-While the app is created using the genAI tools of one of the tech giants the app itself is deterministic. These tools are proprietary and I purchased the access by myself. I also run the tools using my private laptop. In practice the code is R using interactive Shiny UI. Digitization is performed by package IPDfromKM. As always there are various options with R / Python. 
+While the app is created using the genAI tools of one of the tech giants the app itself is deterministic. These tools are proprietary and I purchased the access by myself. I also run the tools using my private laptop. In practice the code is R using interactive Shiny UI. Digitization is performed by package IPDfromKM: https://doi.org/10.1186/s12874-021-01308-8.
+As always there are various options with R / Python. 
 
 ### Step 1: get a Kaplan-Meier figure of overall survival OS & load the figure into the app
 preferably a good quality, high resolution figure of decent size.
@@ -35,6 +36,7 @@ From the previous traced K-M curves indivial patient data are recreated. This da
 Please specify also the number of patients in the beginning. This information usually appears as a number in the figure. However, this information is not automatically extracted. **Tesseract automation in the future??**
 
 <img width="297" height="311" alt="image" src="https://github.com/user-attachments/assets/e555ff14-9f88-40e7-a763-77dc8e969d59" />
+
 
 <img width="360" height="85" alt="image" src="https://github.com/user-attachments/assets/322ba6a2-6f08-4142-ae23-575ad5d6351b" />
 
