@@ -3,11 +3,11 @@ What I had in my mind was OS curves of a typical oncology drug in a non-curative
 
 The first step is to focus on modelling life years gained, which is arguably the most important driver of the final result in the PSM. Mechanistic cost calculation does not provide such artistic satisfaction, which is needed during the summer holiday.
 
-While the app is created using the genAI tools of one of the tech giants the app itself is deterministic. These tools are proprietary and I purchased the access by myself. I also run the tools using my private laptop. In practice the code is R using Shiny. 
+While the app is created using the genAI tools of one of the tech giants the app itself is deterministic. These tools are proprietary and I purchased the access by myself. I also run the tools using my private laptop. In practice the code is R using interactive Shiny UI. Digitization is performed by package IPDfromKM. As always there are various options with R / Python. 
 
 ### Step 1: get a Kaplan-Meier figure of overall survival OS & load the figure into the app
 preferably a good quality, high resolution figure of decent size.
-You may download that in jpeg, png etc. In practise you may need to save captured image into your computer and use the option "Upload Local Image" instead of option "Load from URL". The latter option needs more refinement as URLs typically contain other content besides the target image. Using a standard screenshot capture tool You may set the boundaries manually, save it temporarely to Your compure and upload from there. 
+You may download that in jpeg, png etc. In practise you may need to save captured image into your computer and use the option **Upload Local Image** instead of option **Load from URL**. The latter option needs more refinement as URLs typically contain other content besides the target image. Using a standard screenshot capture tool You may set the boundaries manually, save it temporarely to Your compure and upload from there. 
 
 The app allows comparison of two curves from the same figure. This is to say comparison is just to the control group of the same trial and no indirect comparisons are possible at the moment. 
 The sample picture is automaticlly generated. Here are some other random alternatives:
@@ -25,14 +25,14 @@ if automatic calibration fails do it manually by setting origin, X-max and Y-max
 <img width="1602" height="666" alt="image" src="https://github.com/user-attachments/assets/bb328e04-7916-45a4-bf33-f4e0e069b6e7" />
 
 ### Step 3: Trace the curves
-use atomatic curve tracing or do it manually. Trace treatment and control curves by giving the app some point on the curve using mouse. Autotrace implements a property of K-M curves: when x increases y is non-increasing i.e. monotonicity property. Retrace if you are not satisfied with the result. Often several attempts are needed.
+use atomatic curve tracing or do it manually. Trace treatment and control curves by giving the app some point on the curve using mouse. Autotrace implements a property of K-M curves: when x increases y is non-increasing i.e. monotonicity property. Retrace if you are not satisfied with the result. Sometimes several attempts are needed.
 
 <img width="1627" height="742" alt="image" src="https://github.com/user-attachments/assets/92f1982b-25da-4096-bc2b-64abef881ae0" />
 
 
 ### Step 4: reconstruct IPD - this is the step that has to be done before moving on.
 From the previous traced K-M curves indivial patient data are recreated. This data is then used for modelling.
-Please specify also the number of patients in the beginning. This information usually appears as a number in the figure. However, this information is not automatically extracted. 
+Please specify also the number of patients in the beginning. This information usually appears as a number in the figure. However, this information is not automatically extracted. **Tesseract automation in the future??**
 
 <img width="297" height="311" alt="image" src="https://github.com/user-attachments/assets/e555ff14-9f88-40e7-a763-77dc8e969d59" />
 
