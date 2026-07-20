@@ -10,8 +10,10 @@ preferably a good quality, high resolution figure of decent size.
 You may download that in jpeg, png etc. The app allows comparison of two curves from the same figure. This is to say comparison is just to the control group of the same trial and no indirect comparisons are possible at the moment. 
 
 The sample picture is automaticlly generated. Here are some other random alternatives:
+
 EX1
 EX2
+More of these below...
 
 <img width="337" height="393" alt="loading" src="https://github.com/user-attachments/assets/98c5c82e-2538-4975-a69d-3b44eb94c2d0" />
 
@@ -40,7 +42,7 @@ You may implement tail trimming when fitting the models. Typically the tail of t
 <img width="1775" height="755" alt="image" src="https://github.com/user-attachments/assets/ce3fb795-c06d-4cc0-b3fa-2e36cbd2b947" />
 
 ### Step 6: choose the best model for inspection - combined model comparison
-Choose one of the models (for the treatment and for the control, does not need to be the same) for more detailed inspection.
+Choose one of the models (for the treatment and for the control, does not need to be the same) for more detailed inspection. The figure is simplified as just the chosen models with their extrapolations are displayed alongside with the "raw" K-M curve.
 
 <img width="971" height="742" alt="image" src="https://github.com/user-attachments/assets/f402dba8-21a7-4c7f-b9f1-8a261480b207" />
 
@@ -55,5 +57,6 @@ In general disscussion it is often stated that just a few months can be gained w
 
 <img width="497" height="732" alt="image" src="https://github.com/user-attachments/assets/ecde3a57-8c46-4912-921d-93e73f23899e" />
 
+You may also study the raw hazards, based on reconstructed IPD, and compare them to the hasards implied by the model. 
 
 # Ver 2.0 add some genAI
