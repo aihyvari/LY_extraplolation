@@ -1,19 +1,18 @@
 # Ver 1.0
-What I had in my mind was OS curves of a typical oncology drug in a non-curative setting (i.e. metastatic disease). Together with PFS curves, utilities and dosing & cost information these are often used to inform a Partitioned Survival Model in health economic evaluations. In curative setting the modelling may be a bit different. 
+What I had in my mind was OS curves of a typical oncology drug in a non-curative setting (i.e. metastatic disease). Together with PFS curves, utilities and dosing and cost information these are often used to inform a Partitioned Survival Model (PSM) in health economic evaluations. In curative setting the modelling may be a bit different. 
 
 The first step is to focus on modelling life years gained, which is arguably the most important driver of the final result in the PSM. Mechanistic cost calculation does not provide such artistic satisfaction, which is needed during the summer holiday.
 
-While the app is created using the genAI tools of one of the tech giants the app itself is deterministic. These tools are proprietary and I purchased the access by myself. I also run the tools using my private laptop. In practice the code is R using interactive Shiny UI. Digitization is performed by package IPDfromKM: https://doi.org/10.1186/s12874-021-01308-8.
-As always there are various options with R / Python. 
+While the app is created using the genAI tools of one of the tech giants the app itself is deterministic. These tools are proprietary and I purchased the access to them myself. I also run the tools using my private laptop. In practice the code is R using interactive Shiny UI. Digitization is performed using the package IPDfromKM: https://doi.org/10.1186/s12874-021-01308-8.
+As always there are various options with R / Python, but aforementioned package was proposed by AI. 
 
 ### Step 1: get a Kaplan-Meier figure of overall survival OS & load the figure into the app
 preferably a good quality, high resolution figure of decent size.
-You may download that in jpeg, png etc. In practise you may need to save captured image into your computer and use the option **Upload Local Image** instead of option **Load from URL**. The latter option needs more refinement as URLs typically contain other content besides the target image. Using a standard screenshot capture tool You may set the boundaries manually, save it temporarely to Your compure and upload from there. 
+You may download it as a JPEG, PNG or another image format. In practise you may need to save captured image into your computer and use the option **Upload Local Image** instead of option **Load from URL**. The latter option needs more refinement as URLs typically contain other content besides the target image. Using a standard screenshot capture tool You may set the boundaries manually, save the image temporarily to Your compure and upload from there. 
 
-The app allows comparison of two curves from the same figure. This is to say comparison is just to the control group of the same trial and no indirect comparisons are possible at the moment. 
-The sample picture is automaticlly generated. Here are some other random alternatives:
+The app allows comparison of two curves from the same figure. That is, the comparison is limited to the treatment and control groups within the same trial, and indirect comparisons are not possible at the moment. The sample picture is automatically generated. Here are some other random real examples:
 
-EX1
+Pembrolizumab vs platinum chemotherapy KEYNOTE-024: (https://ascopubs.org/doi/pdf/10.1200/JCO.21.00174)
 EX2
 More about these below...
 
@@ -26,7 +25,7 @@ if automatic calibration fails do it manually by setting origin, X-max and Y-max
 <img width="1602" height="666" alt="image" src="https://github.com/user-attachments/assets/bb328e04-7916-45a4-bf33-f4e0e069b6e7" />
 
 ### Step 3: Trace the curves
-use atomatic curve tracing or do it manually. Trace treatment and control curves by giving the app some point on the curve using mouse. Autotrace implements a property of K-M curves: when x increases y is non-increasing i.e. monotonicity property. Retrace if you are not satisfied with the result. Sometimes several attempts are needed.
+Use atomatic curve tracing or do it manually. Trace treatment and control curves by selecting the app some point on the curve with your mouse. The autotrace implements a property of Kaplan-Meier (K-M) curves: when x increases y is non-increasing i.e. it follows the monotonicity property. If you are not satisfied with the result, retrace the curves and try again. Sometimes several attempts are required to achieve the desired result.
 
 <img width="1627" height="742" alt="image" src="https://github.com/user-attachments/assets/92f1982b-25da-4096-bc2b-64abef881ae0" />
 
