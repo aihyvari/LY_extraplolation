@@ -25,7 +25,7 @@ if automatic calibration fails do it manually by setting origin, X-max and Y-max
 <img width="1442" height="600" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/calibration.png" />
 
 ### Step 3: Trace the curves
-Use atomatic curve tracing or do it manually. Trace treatment and control curves by selecting the app some point on the curve with your mouse. The autotrace implements a property of Kaplan-Meier (K-M) curves: when x increases y is non-increasing i.e. it follows the monotonicity property. If you are not satisfied with the result, retrace the curves and try again. Sometimes several attempts are required to achieve the desired result.
+Use atomatic curve tracing or do it manually. Choose the active curve (treatment / control) from the dropdown menu and then trace it by selecting some point on the curve with your mouse. The autotrace should search the points along the curve. The autotrace implements a property of Kaplan-Meier (K-M) curves: when x increases y is non-increasing i.e. it follows the monotonicity property. If you are not satisfied with the result, retrace the curves and try again. Sometimes several attempts are required to achieve the desired result.
 
 <img width="1627" height="742" alt="image" src="https://github.com/user-attachments/assets/92f1982b-25da-4096-bc2b-64abef881ae0" />
 
