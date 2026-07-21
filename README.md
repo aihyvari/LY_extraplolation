@@ -20,7 +20,7 @@ More about these below...
 
  
 ### Step 2: calibrate the figure
-if automatic calibration fails do it manually by setting origin, X-max and Y-max by mouse.
+if automatic calibration fails do it manually by setting origin, X-max and Y-max by mouse.**Please, set the X max value (the box on the left) manually according your image - this important for the calculations as the tick marks are considered relative to max!**
 
 <img width="1442" height="600" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/calibration.png" />
 
