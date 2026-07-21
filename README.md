@@ -30,7 +30,7 @@ Use atomatic curve tracing or do it manually. Trace treatment and control curves
 <img width="1627" height="742" alt="image" src="https://github.com/user-attachments/assets/92f1982b-25da-4096-bc2b-64abef881ae0" />
 
 
-### Step 4: reconstruct IPD - this is the step that has to be done before moving on.
+### Step 4: reconstruct IPD - this step has to be done before moving on.
 From the previous traced K-M curves indivial patient data are recreated. This data is then used for modelling.
 Please specify also the number of patients in the beginning. This information usually appears as a number in the figure. However, this information is not automatically extracted. **Tesseract automation in the future??**
 
