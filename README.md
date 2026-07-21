@@ -22,7 +22,7 @@ More about these below...
 ### Step 2: calibrate the figure
 if automatic calibration fails do it manually by setting origin, X-max and Y-max by mouse.
 
-<img width="1602" height="666" alt="image" src="https://github.com/user-attachments/assets/bb328e04-7916-45a4-bf33-f4e0e069b6e7" />
+<img width="1442" height="600" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/calibration.png" />
 
 ### Step 3: Trace the curves
 Use atomatic curve tracing or do it manually. Trace treatment and control curves by selecting the app some point on the curve with your mouse. The autotrace implements a property of Kaplan-Meier (K-M) curves: when x increases y is non-increasing i.e. it follows the monotonicity property. If you are not satisfied with the result, retrace the curves and try again. Sometimes several attempts are required to achieve the desired result.
