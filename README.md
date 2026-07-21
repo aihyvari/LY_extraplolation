@@ -32,7 +32,7 @@ Use automatic curve tracing or do it manually. Choose the active curve (treatmen
 
 ### Step 4: reconstruct IPD - this step has to be done before moving on.
 From the previous traced K-M curves indivial patient data are recreated. This data is then used for modelling.
-Please specify also the number of patients in the beginning. This information usually appears as a number in the figure. However, this information is not automatically extracted. **Tesseract automation in the future??**
+Please specify also the number of patients in the beginning and at-risk numbers in different time points. This information usually appears as a number in the figure and at-risk table below the image. However, if this information is not automatically extracted it should be manually fed. Otherwise information will be lost even if the K-M curve visually appers similar to original one. So, please check the result from OCR and fix if necessary.
 
 <img width="297" height="311" alt="image" src="https://github.com/user-attachments/assets/e555ff14-9f88-40e7-a763-77dc8e969d59" />
 
