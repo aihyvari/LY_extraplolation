@@ -12,8 +12,8 @@ You may download it as a JPEG, PNG or another image format. In practise you may 
 
 The app allows comparison of two curves from the same figure. That is, the comparison is limited to the treatment and control groups within the same trial, and indirect comparisons are not possible at the moment. The sample picture is automatically generated. Here are some other random real examples:
 
-Pembrolizumab vs platinum chemotherapy KEYNOTE-024: (https://ascopubs.org/doi/pdf/10.1200/JCO.21.00174)
-EX2
+1. Pembrolizumab vs platinum chemotherapy KEYNOTE-024: (https://ascopubs.org/doi/pdf/10.1200/JCO.21.00174)
+2. EX2
 More about these below...
 
 <img width="337" height="393" alt="loading" src="https://github.com/user-attachments/assets/98c5c82e-2538-4975-a69d-3b44eb94c2d0" />
