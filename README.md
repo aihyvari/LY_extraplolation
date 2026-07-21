@@ -25,7 +25,7 @@ if automatic calibration fails do it manually by setting origin, X-max and Y-max
 <img width="1442" height="600" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/calibration.png" />
 
 ### Step 3: Trace the curves
-Use atomatic curve tracing or do it manually. Choose the active curve (treatment / control) from the dropdown menu and then trace it by selecting some point on the curve with your mouse. The autotrace should search the points along the curve. The autotrace implements a property of Kaplan-Meier (K-M) curves: when x increases y is non-increasing i.e. it follows the monotonicity property. If you are not satisfied with the result, retrace the curves and try again. Sometimes several attempts are required to achieve the desired result.
+Use automatic curve tracing or do it manually. Choose the active curve (treatment / control) from the dropdown menu and then trace it by selecting some point on the curve with your mouse. The autotrace should search the points along the curve. The autotrace implements a property of Kaplan-Meier (K-M) curves: when x increases y is non-increasing i.e. it follows the monotonicity property. If you are not satisfied with the result, retrace the curves and try again. Sometimes several attempts are required to achieve the desired result. In principle, even point-wise manual tracking is possible. 
 
 <img width="1627" height="742" alt="image" src="https://github.com/user-attachments/assets/92f1982b-25da-4096-bc2b-64abef881ae0" />
 
@@ -65,3 +65,7 @@ In general disscussion it is often stated that just a few months can be gained w
 You may also study the raw hazards, based on reconstructed IPD, and compare them to the hasards implied by the model. 
 
 # Ver 2.0 add some genAI
+The end results of this app can be consired as building blocks of PSM. Progression Free Survival (PFS) curves could be handled as OS curves.
+1. GenAI to extract dosing regimen information from SmPCs?
+2. GenAI to extract comparative asessment results from Fimea, NICE etc.
+genA
