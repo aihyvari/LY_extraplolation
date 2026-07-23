@@ -46,6 +46,8 @@ You may implement tail trimming when fitting the models. Typically the tail of t
 ### Step 6: choose the best model for inspection - combined model comparison
 Choose one of the models (for the treatment and for the control, does not need to be the same) for more detailed inspection. The figure is simplified as just the chosen models with their extrapolations are displayed alongside with the "raw" K-M curve.
 
+You may also study the raw hazards, based on reconstructed IPD, and compare them to the hasards implied by the model. You may "zoom" the hasard plot by adjusting the x-axis scaler with the slider input.
+
 <img width="971" height="742" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/final_res.png" />
 
 Now you can see some statistics calculated. How many life years are gained over the extrapolation horizon in AUC interpretation (both undiscounted and discounted). This is the Restricted Mean Survival Time RMST: 
@@ -53,13 +55,14 @@ Now you can see some statistics calculated. How many life years are gained over 
 RMST(\tau)=\int_0^\tau S(t)\,dt
 ```
 
-where the t refers to extrapolation horizon length and S is the survival function. Thus RMST is the area under survival curve up to the extrapolation horizon. Restricted refers to the fact that not all events or censoring have been observed during the horizon (Y>0 in the curve). Also the difference in modelled medians is shown.
+where the t refers to extrapolation horizon length and S is the survival function. Thus RMST is the area under survival curve up to the extrapolation horizon. Restricted refers to the fact that not all events or censoring have been observed during the horizon (Y>0 in the curve). Also the difference in modelled medians is shown (note that the medians are based on fitted model - not raw data).
 
-In general disscussion it is often stated that just a few months can be gained with the new treatment. With IO treatments this statement is somewhat imprecice. Many patients or even majority of them have negligble benefit, but some share 20-40 % can have very long lasting effect. So one can either have significant benefit or almost none at all. This kind of setting leads to a situation where RMST can be significantly larger than the difference in the medians. Implicit assumption with extrapolation is that there are no new drivers of thge result after observations end. Basically this often means that if the treatment and control curves are separateted during observational period they will stay that separated during extrapolation period. Obviously these conclusions are based on simplification & generalization. 
+<img width="300" height="600" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/LYs.png" />
+<img width="300" height="600" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/HRs.png" />
 
-<img width="497" height="732" alt="image" src="https://github.com/user-attachments/assets/ecde3a57-8c46-4912-921d-93e73f23899e" />
+In general disscussion it is often stated that just a few months can be gained with the new treatment. With IO treatments this statement is somewhat imprecice. Many patients or even majority of them have negligble benefit, but some share 20-40 % can have very long lasting effect. So one can either have significant benefit or almost none at all. This kind of setting leads to a situation where RMST can be significantly larger than the difference in the medians. This can be seen especially from PFS curves. 
 
-You may also study the raw hazards, based on reconstructed IPD, and compare them to the hasards implied by the model. 
+Implicit assumption with extrapolation is that there are no new drivers of thge result after observations end. Basically this often means that if the treatment and control curves are separateted during observational period they will stay that separated during extrapolation period. Obviously these conclusions are based on simplification & generalization. 
 
 # Ver 2.0 add some genAI
 The end results of this app can be consired as building blocks of PSM. Progression Free Survival (PFS) curves could be handled as OS curves.
