@@ -16,7 +16,7 @@ The app allows comparison of two curves from the same figure. That is, the compa
 2. EX2
 More about these below...
 
-<img width="337" height="393" alt="loading" src="https://github.com/user-attachments/assets/98c5c82e-2538-4975-a69d-3b44eb94c2d0" />
+<img width="337" height="393" alt="loading" src="https://github.com/aihyvari/LY_extraplolation/blob/main/lataus.png" />
 
  
 ### Step 2: calibrate the figure
