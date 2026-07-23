@@ -16,7 +16,7 @@ The app allows comparison of two curves from the same figure. That is, the compa
 2. EX2
 More about these below...
 
-<img width="337" height="393" alt="loading" src="https://github.com/aihyvari/LY_extraplolation/blob/main/lataus.png" />
+<img width="303" height="354" alt="loading" src="https://github.com/aihyvari/LY_extraplolation/blob/main/lataus.png" />
 
  
 ### Step 2: calibrate the figure
@@ -27,7 +27,7 @@ if automatic calibration fails do it manually by setting origin, X-max and Y-max
 ### Step 3: Trace the curves
 Use automatic curve tracing or do it manually. Choose the active curve (treatment / control) from the dropdown menu and then trace it by selecting some point on the curve with your mouse. The autotrace should search the points along the curve. The autotrace implements a property of Kaplan-Meier (K-M) curves: when x increases y is non-increasing i.e. it follows the monotonicity property. If you are not satisfied with the result, retrace the curves and try again. Sometimes several attempts are required to achieve the desired result. In principle, even point-wise manual tracking is possible. 
 
-<img width="1627" height="742" alt="image" src="https://github.com/user-attachments/assets/92f1982b-25da-4096-bc2b-64abef881ae0" />
+<img width="1383" height="631" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/track_curves.png" />
 
 
 ### Step 4: reconstruct IPD - this step has to be done before moving on.
@@ -37,7 +37,7 @@ Please specify also the number of patients in the beginning and at-risk numbers 
 <img width="297" height="311" alt="image" src="https://github.com/user-attachments/assets/e555ff14-9f88-40e7-a763-77dc8e969d59" />
 
 
-<img width="360" height="85" alt="image" src="https://github.com/user-attachments/assets/322ba6a2-6f08-4142-ae23-575ad5d6351b" />
+<img width="360" height="85" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/at-risk_tables.png" />
 
 ### Step 5: fit standard parametric models
 Standard parametric models are fitted to the IPD and extrapolated. You may set the extrapolation horizon. The default is 120 and the assumption is that the time units are in months (i.e. 120 corresponds to 10 years). AIC and BIC values are shown to describe the statistical fit of each of models. No flexible spline or other more complex models are avaibable thus far.
