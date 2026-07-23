@@ -34,10 +34,7 @@ Use automatic curve tracing or do it manually. Choose the active curve (treatmen
 From the previous traced K-M curves indivial patient data are recreated. This data is then used for modelling.
 Please specify also the number of patients in the beginning and at-risk numbers in different time points. This information usually appears as a number in the figure and at-risk table below the image. However, if this information is not automatically extracted it should be manually fed. Otherwise information will be lost even if the K-M curve visually appers similar to original one. So, please check the result from OCR and fix if necessary.
 
-<img width="297" height="311" alt="image" src="https://github.com/user-attachments/assets/e555ff14-9f88-40e7-a763-77dc8e969d59" />
-
-
-<img width="360" height="85" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/at-risk_tables.png" />
+<img width="130" height="395" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/at-risk_tables.png" />
 
 ### Step 5: fit standard parametric models
 Standard parametric models are fitted to the IPD and extrapolated. You may set the extrapolation horizon. The default is 120 and the assumption is that the time units are in months (i.e. 120 corresponds to 10 years). AIC and BIC values are shown to describe the statistical fit of each of models. No flexible spline or other more complex models are avaibable thus far.
