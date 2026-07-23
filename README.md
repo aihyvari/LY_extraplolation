@@ -34,19 +34,19 @@ Use automatic curve tracing or do it manually. Choose the active curve (treatmen
 From the previous traced K-M curves indivial patient data are recreated. This data is then used for modelling.
 Please specify also the number of patients in the beginning and at-risk numbers in different time points. This information usually appears as a number in the figure and at-risk table below the image. However, if this information is not automatically extracted it should be manually fed. Otherwise information will be lost even if the K-M curve visually appers similar to original one. So, please check the result from OCR and fix if necessary.
 
-<img width="130" height="395" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/at-risk_tables.png" />
+<img width="390" height="600" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/at-risk_tables.png" />
 
 ### Step 5: fit standard parametric models
 Standard parametric models are fitted to the IPD and extrapolated. You may set the extrapolation horizon. The default is 120 and the assumption is that the time units are in months (i.e. 120 corresponds to 10 years). AIC and BIC values are shown to describe the statistical fit of each of models. No flexible spline or other more complex models are avaibable thus far.
 
 You may implement tail trimming when fitting the models. Typically the tail of the K-M curve can have a large effect on model fit and extrapolation. However, the shape of the tail may be based on small number of patients at risk. Hence, the tail may be trimmed and left it out from model fitting. The effect of tail trimming can be evaluated in the next sheet. 
 
-<img width="1775" height="755" alt="image" src="https://github.com/user-attachments/assets/ce3fb795-c06d-4cc0-b3fa-2e36cbd2b947" />
+<img width="1775" height="755" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/fits.png" />
 
 ### Step 6: choose the best model for inspection - combined model comparison
 Choose one of the models (for the treatment and for the control, does not need to be the same) for more detailed inspection. The figure is simplified as just the chosen models with their extrapolations are displayed alongside with the "raw" K-M curve.
 
-<img width="971" height="742" alt="image" src="https://github.com/user-attachments/assets/f402dba8-21a7-4c7f-b9f1-8a261480b207" />
+<img width="971" height="742" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/final_res.png" />
 
 Now you can see some statistics calculated. How many life years are gained over the extrapolation horizon in AUC interpretation (both undiscounted and discounted). This is the Restricted Mean Survival Time RMST: 
 ```math
