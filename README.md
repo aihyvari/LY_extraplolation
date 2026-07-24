@@ -8,7 +8,7 @@ As always there are various options with R / Python, but aforementioned package 
 
 ### Step 1: get a Kaplan-Meier figure of overall survival OS & load the figure into the app
 preferably a good quality, high resolution figure of decent size.
-You may download it as a JPEG, PNG or another image format. In practise you may need to save captured image into your computer and use the option **Upload Local Image** instead of option **Load from URL**. The latter option needs more refinement as URLs typically contain other content besides the target image. Using a standard screenshot capture tool You may set the boundaries manually, save the image temporarily to Your compure and upload from there. 
+You may download it as a JPEG, PNG or another image format. In practise you may need to save captured image into your computer and use the option **Upload Local Image** instead of option **Load from URL**. The latter option needs more refinement as URLs typically contain other content besides the target image. Using a standard screenshot capture tool You may set the boundaries manually, save the image temporarily to Your compure and upload from there. Please, include the at-risk table below the figure as it is also utilized with Optical Character Recognition (OCR) feature.
 
 The app allows comparison of two curves from the same figure. That is, the comparison is limited to the treatment and control groups within the same trial, and indirect comparisons are not possible at the moment. The sample picture is automatically generated. Here are some other random real examples:
 
@@ -30,9 +30,9 @@ Use automatic curve tracing or do it manually. Choose the active curve (treatmen
 <img width="1383" height="631" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/track_curves.png" />
 
 
-### Step 4: reconstruct IPD - this step has to be done before moving on.
-From the previous traced K-M curves indivial patient data are recreated. This data is then used for modelling.
-Please specify also the number of patients in the beginning and at-risk numbers in different time points. This information usually appears as a number in the figure and at-risk table below the image. However, if this information is not automatically extracted it should be manually fed. Otherwise information will be lost even if the K-M curve visually appers similar to original one. So, please check the result from OCR and fix if necessary.
+### Step 4: reconstruct IPD - this step must be completed before moving on.
+From the previous traced K-M curves indivial patient data (IPD) are recreated. This data is then used for modelling.
+Please specify also the number of patients at the baseline and at-risk numbers at the different time points. This information usually appears as a number in the figure and at-risk table below the image. However, if this information is not automatically extracted it should be manually fed. Otherwise, information will be lost even if the K-M curve visually appears similar to original one. So, please verify the result from OCR and fix if necessary.
 
 <img width="390" height="600" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/at-risk_tables.png" />
 
@@ -44,7 +44,7 @@ You may implement tail trimming when fitting the models. Typically the tail of t
 <img width="1775" height="755" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/fits.png" />
 
 ### Step 6: choose the best model for inspection - combined model comparison
-Choose one of the models (for the treatment and for the control, does not need to be the same) for more detailed inspection. The figure is simplified as just the chosen models with their extrapolations are displayed alongside with the "raw" K-M curve.
+Choose one of the models for more detailed inspection. It doesn't have to be the same for the treatment and for the control. However, using different models for treatment and control typically requires some justification. The figure is simplified as just the chosen models with their extrapolations are displayed alongside with the "raw" K-M curve.
 
 You may also study the raw hazards, based on reconstructed IPD, and compare them to the hasards implied by the model. You may "zoom" the hasard plot by adjusting the x-axis scaler with the slider input.
 
@@ -57,15 +57,16 @@ RMST(\tau)=\int_0^\tau S(t)\,dt
 
 where the t refers to extrapolation horizon length and S is the survival function. Thus RMST is the area under survival curve up to the extrapolation horizon. Restricted refers to the fact that not all events or censoring have been observed during the horizon (Y>0 in the curve). Also the difference in modelled medians is shown (note that the medians are based on fitted model - not raw data).
 
-<img width="300" height="600" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/LYs.png" />
-<img width="300" height="600" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/HRs.png" />
+<p align="center">
+  <img src="https://raw.githubusercontent.com/aihyvari/LY_extraplolation/main/LYs.png" width="300" alt="Life years">
+  <img src="https://raw.githubusercontent.com/aihyvari/LY_extraplolation/main/HRs.png" width="300" alt="Hazard ratios">
+</p>
 
-In general disscussion it is often stated that just a few months can be gained with the new treatment. With IO treatments this statement is somewhat imprecice. Many patients or even majority of them have negligble benefit, but some share 20-40 % can have very long lasting effect. So one can either have significant benefit or almost none at all. This kind of setting leads to a situation where RMST can be significantly larger than the difference in the medians. This can be seen especially from PFS curves. 
+In general disscussions it is often stated that just a few months can be gained with the new treatment. With IO treatments this statement it can happen that many patients or even majority of them have negligble benefit, but some share 20-40 % can have very long lasting effect. So one can either have significant benefit or almost none at all. This is particularly evident in PFS curves, where the delayed curve separation is more clear. This kind of setting leads to a situation where difference in RMST can be substantially larger than the difference in the medians.  
 
-Implicit assumption with extrapolation is that there are no new drivers of thge result after observations end. Basically this often means that if the treatment and control curves are separateted during observational period they will stay that separated during extrapolation period. Obviously these conclusions are based on simplification & generalization. 
+Implicit assumption with extrapolation is that there are no new drivers of the result after observations end. Basically this often means that if the treatment and control curves are separateted during observational period they will remain similarly separated during extrapolation period. Obviously these conclusions are based on simplification & generalization. 
 
 # Ver 2.0 add some genAI
 The end results of this app can be consired as building blocks of PSM. Progression Free Survival (PFS) curves could be handled as OS curves.
 1. GenAI to extract dosing regimen information from SmPCs?
-2. GenAI to extract comparative asessment results from Fimea, NICE etc.
-genA
+2. GenAI to extract comparative assessment results from Fimea, NICE etc.
