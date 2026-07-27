@@ -16,39 +16,39 @@ The app allows comparison of two curves from the same figure. That is, the compa
 2. EX2
 More about these below...
 
-<img width="303" height="354" alt="loading" src="https://github.com/aihyvari/LY_extraplolation/blob/main/lataus.png" />
+<img width="303" height="354" alt="loading" src="https://github.com/aihyvari/LY_extraplolation/blob/main/kuvat/lataus.png" />
 
  
 ### Step 2: calibrate the figure
 if automatic calibration fails do it manually by setting origin, X-max and Y-max by mouse.**Please, set the X max value (the box on the left) manually according your image - this important for the calculations as the tick marks are considered relative to max!**
 
-<img width="1442" height="600" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/calibration.png" />
+<img width="1442" height="600" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/kuvat/calibration.png" />
 
 ### Step 3: Trace the curves
 Use automatic curve tracing or do it manually. Choose the active curve (treatment / control) from the dropdown menu and then trace it by selecting some point on the curve with your mouse. The autotrace should search the points along the curve. The autotrace implements a property of Kaplan-Meier (K-M) curves: when x increases y is non-increasing i.e. it follows the monotonicity property. If you are not satisfied with the result, retrace the curves and try again. Sometimes several attempts are required to achieve the desired result. In principle, even point-wise manual tracking is possible. 
 
-<img width="1383" height="631" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/track_curves.png" />
+<img width="1383" height="631" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/kuvat/track_curves.png" />
 
 
 ### Step 4: reconstruct IPD - this step must be completed before moving on.
 From the previous traced K-M curves indivial patient data (IPD) are recreated. This data is then used for modelling.
 Please specify also the number of patients at the baseline and at-risk numbers at the different time points. This information usually appears as a number in the figure and at-risk table below the image. However, if this information is not automatically extracted it should be manually fed. Otherwise, information will be lost even if the K-M curve visually appears similar to original one. So, please verify the result from OCR and fix if necessary.
 
-<img width="390" height="600" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/at-risk_tables.png" />
+<img width="390" height="600" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/kuvat/at-risk_tables.png" />
 
 ### Step 5: fit standard parametric models
 Standard parametric models are fitted to the IPD and extrapolated. You may set the extrapolation horizon. The default is 120 and the assumption is that the time units are in months (i.e. 120 corresponds to 10 years). AIC and BIC values are shown to describe the statistical fit of each of models. No flexible spline or other more complex models are avaibable thus far.
 
 You may implement tail trimming when fitting the models. Typically the tail of the K-M curve can have a large effect on model fit and extrapolation. However, the shape of the tail may be based on small number of patients at risk. Hence, the tail may be trimmed and left it out from model fitting. The effect of tail trimming can be evaluated in the next sheet. 
 
-<img width="1775" height="755" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/fits.png" />
+<img width="1775" height="755" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/kuvat/fits.png" />
 
 ### Step 6: choose the best model for inspection - combined model comparison
 Choose one of the models for more detailed inspection. It doesn't have to be the same for the treatment and for the control. However, using different models for treatment and control typically requires some justification. The figure is simplified as just the chosen models with their extrapolations are displayed alongside with the "raw" K-M curve.
 
 You may also study the raw hazards, based on reconstructed IPD, and compare them to the hasards implied by the model. You may "zoom" the hasard plot by adjusting the x-axis scaler with the slider input.
 
-<img width="971" height="742" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/final_res.png" />
+<img width="971" height="742" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/kuvat/final_res.png" />
 
 Now you can see some statistics calculated. How many life years are gained over the extrapolation horizon in AUC interpretation (both undiscounted and discounted). This is the Restricted Mean Survival Time RMST: 
 ```math
@@ -58,8 +58,8 @@ RMST(\tau)=\int_0^\tau S(t)\,dt
 where the t refers to extrapolation horizon length and S is the survival function. Thus RMST is the area under survival curve up to the extrapolation horizon. Restricted refers to the fact that not all events or censoring have been observed during the horizon (Y>0 in the curve). Also the difference in modelled medians is shown (note that the medians are based on fitted model - not raw data).
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/aihyvari/LY_extraplolation/main/LYs.png" width="300" alt="Life years">
-  <img src="https://raw.githubusercontent.com/aihyvari/LY_extraplolation/main/HRs.png" width="300" alt="Hazard ratios">
+  <img src="https://raw.githubusercontent.com/aihyvari/LY_extraplolation/main/kuvat/LYs.png" width="300" alt="Life years">
+  <img src="https://raw.githubusercontent.com/aihyvari/LY_extraplolation/main/kuvat/HRs.png" width="300" alt="Hazard ratios">
 </p>
 
 In general disscussions it is often stated that just a few months can be gained with the new treatment. With IO treatments this statement it can happen that many patients or even majority of them have negligble benefit, but some share 20-40 % can have very long lasting effect. So one can either have significant benefit or almost none at all. This is particularly evident in PFS curves, where the delayed curve separation is more clear. This kind of setting leads to a situation where difference in RMST can be substantially larger than the difference in the medians.  
