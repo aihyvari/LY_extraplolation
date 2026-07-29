@@ -68,7 +68,8 @@ Obviously these conclusions are based on simplification & generalization.
 ## Here are some other random real examples:
 
 1.The figures above were based on OAK: A Phase 3 efficacy trial in second-line non-squamous or squamous advanced/metastatic NSCLC. https://tecentriq.global/home/indication/non-small-cell-lung-cancer.html 
-Here origin, x-max and y-max had to given as well as 27 value for x-max. Choosing log-logistic for both treatment and control curves prevents curves from crossing. Moreover it produces Cox-HR 0.74 which matches the original.
+Here origin, x-max and y-max had to given as well as 27 value for x-max. Choosing log-logistic for both treatment and control curves prevents curves from crossing. Moreover it produces Cox-HR 0.74 which matches the original. 
+<img width="971" height="742" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/kuvat/ATE_res2.png" />
 
 2. Second example. Pembrolizumab vs platinum chemotherapy KEYNOTE-024 OS figure from: https://ascopubs.org/doi/pdf/10.1200/JCO.21.00174. Figure calibration is successful. Treatment curve tracking looks nice in one go, but the control curve needs to be done in two pieces. There are no problems in building at-risk tables and IPD. The Weibull model gives the best fit for the treatment curve, but the log-normal for the control curve. The fitted Weibull curve diverges visibly from original K-M at the median. Choosing log-logistic model for both treatment and control gives a good visual fit and relatively nice AIC and BIC. Seems that the curves remain separated at the end of horizon and thus the difference in the RMST will increase if extrapolation horizon is extended. Cox HR was 0,64 while it was reported 0,62 in the original publication. From the table you may observe that the HR is not constant over time. This is general result and you may study the HR in different time points.  
 
