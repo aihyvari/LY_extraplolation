@@ -3,7 +3,7 @@ What I had in mind was OS curves of a typical oncology drug in a non-curative se
 
 The first step is to focus on modelling life-years gained, which is arguably the most important driver of the final result in a PSM. In addition, mechanistic cost calculations does not provide such artistic satisfaction, which is needed during the summer holiday.
 
-While the app is created using the genAI tools of one of the tech giants the app itself is deterministic and even somewhat transparent. These coding tools are proprietary and I purchased the access to them myself. I also run the tools using my private laptop. All the examples and other data are available from public web and found by AI performing searches. In practice the code is R using interactive Shiny UI. Conversion of digitized point to patient level data is performed using the R package IPDfromKM: https://doi.org/10.1186/s12874-021-01308-8. Curve tracing logic is a code written by AI.
+While the app is created using the genAI tools of one of the tech giants the app itself is deterministic and even somewhat transparent. These coding tools are proprietary and I purchased the access to them myself. I also run the tools using my private laptop. All the examples and other data are available from public web and found by AI. In practice the code is R using interactive Shiny UI. Conversion of digitized point to patient level data is performed using the R package IPDfromKM: https://doi.org/10.1186/s12874-021-01308-8. Curve tracing logic is a code written by AI.
 As always there are various options with R / Python, but aforementioned package was proposed by AI. 
 
 ### Step 1: get a Kaplan-Meier figure of overall survival (OS) & load the figure into the app
@@ -31,18 +31,18 @@ If you are not satisfied with the result, retrace the curves and try again. Some
 ### Step 4: Reconstruct IPD - this step must be completed before moving on.
 From the previous traced K-M curves individual patient data (IPD) are recreated. This data is then used for modelling.
 Please specify also the number of patients at the baseline and numbers at-risk at different time points. This information usually appears as numbers in the figure and at-risk table below the image. Click the **auto-extract at-risk (OCR)** button for performing OCR search of these numbers. However, if this information is not automatically extracted it should be manually fed. Otherwise, information will be lost even if the K-M curve visually appears similar to the original one. So, please verify the result from OCR and fix if necessary.
-Finally, click **Run IPD reconstruction** and admire figures accompanied by mysterious statistics.
+Finally, click **Run IPD reconstruction** and admire figures accompanied by fancy statistics.
 
 <img width="390" height="600" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/kuvat/at-risk_tables.png" />
 
-### Step 5: fit standard parametric models
-Standard parametric models are fitted to the IPD and extrapolated. You may set the extrapolation horizon. The default is 120 and the assumption is that the time units are in months (i.e. 120 corresponds to 10 years). AIC and BIC values are shown to describe the statistical fit of each of models. No flexible spline or other more complex models are avaibable thus far.
+### Step 5: Fit standard parametric models
+Standard parametric models are fitted to the reconstructed IPD and extrapolated. You may set the extrapolation horizon. The default is 120 and the assumption is that the time units are in months (i.e. 120 corresponds to 10 years). AIC and BIC values are shown to describe the statistical fit of each model. No flexible spline or other more complex models are available thus far.
 
-You may implement tail trimming when fitting the models. Typically the tail of the K-M curve can have a large effect on model fit and therefore also extrapolation. However, the shape of the tail may be based on small number of patients at risk. The tail of K-M curve may be "trimmed" and left out from model fitting. The effect of tail trimming can be evaluated in the next sheet. I did not consider more complicated methods such as weighting here. 
+You may apply tail trimming when fitting the models. Typically the tail of the K-M curve can have a large effect on model fit and therefore also extrapolation. However, the shape of the tail may be based on a small number of patients at risk. The tail of the K-M curve may be "trimmed" and excluded from model fitting. The effect of tail trimming can be evaluated in the next sheet. I did not consider more complicated methods such as weighting here. 
 
 <img width="1775" height="755" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/kuvat/fits.png" />
 
-### Step 6: choose the best model for inspection - combined model comparison
+### Step 6: Choose the best model for inspection - combined model comparison
 Choose one of the models for more detailed inspection. It doesn't have to be the same for the treatment and for the control. However, choosing different models for treatment and control typically requires additional justification. The figure is simplified as just the chosen models with their extrapolations are displayed alongside with the "raw" K-M curve.
 
 You may also study the (smoothed) raw hazards, based on reconstructed IPD, and compare them to the hazards implied by the model. Obviously, these two should match together. You may "zoom" the hasard plot by adjusting the x-axis scaler with the slider input. There is no zoom feature for Y-axis, but I noticed sometimes this would be beneficial.
@@ -69,21 +69,22 @@ Obviously these conclusions are based on simplification & generalization.
 
 ## Here are some other random real examples:
 
-1.The figures above were based on OAK: A Phase 3 efficacy trial in second-line non-squamous or squamous advanced/metastatic NSCLC. https://tecentriq.global/home/indication/non-small-cell-lung-cancer.html 
+1.The figures above were based on **OAK: A Phase 3 efficacy trial in second-line non-squamous or squamous advanced/metastatic NSCLC**. https://tecentriq.global/home/indication/non-small-cell-lung-cancer.html 
 Here origin, x-max and y-max had to given as well as 27 value for x-max. Choosing log-logistic for both treatment and control curves prevents curves from crossing. Moreover it produces Cox-HR 0.74 which matches the original. 
 <img width="971" height="742" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/kuvat/ATE_res2.png" />
 In NICE assessment "the company used Kaplan–Meier data up to 3 months and extrapolated the data using a log-logistic curve based on best statistical fit for both atezolizumab and docetaxel. Committee.... concluded that using the Kaplan–Meier data with a log-logistic curve was appropriate for its decision-making." https://www.nice.org.uk/guidance/ta520/documents/final-appraisal-determination-document
 
-2. Second example. Pembrolizumab vs platinum chemotherapy KEYNOTE-024 OS figure from: https://ascopubs.org/doi/pdf/10.1200/JCO.21.00174. Figure calibration is successful. Treatment curve tracking looks nice in one go, but the control curve needs to be done in two pieces. There are no problems in building at-risk tables and IPD. The Weibull model gives the best fit for the treatment curve, but the log-normal for the control curve. The fitted Weibull curve diverges visibly from original K-M at the median. Choosing log-logistic model for both treatment and control gives a good visual fit and relatively nice AIC and BIC. Seems that the curves remain separated at the end of horizon and thus the difference in the RMST will increase if extrapolation horizon is extended. Cox HR was 0,64 while it was reported 0,62 in the original publication. From the table you may observe that the HR is not constant over time. This is general result and you may study the HR in different time points.
+**2. Second example**. Pembrolizumab vs platinum chemotherapy KEYNOTE-024 OS figure from: https://ascopubs.org/doi/pdf/10.1200/JCO.21.00174. Figure calibration is successful. Treatment curve tracking looks nice in one go, but the control curve needs to be done in two pieces. There are no problems in building at-risk tables and IPD. The Weibull model gives the best fit for the treatment curve, but the log-normal for the control curve. The fitted Weibull curve diverges visibly from original K-M at the median. Choosing log-logistic model for both treatment and control gives a good visual fit and relatively nice AIC and BIC. Seems that the curves remain separated at the end of horizon and thus the difference in the RMST will increase if extrapolation horizon is extended. Cox HR was 0,64 while it was reported 0,62 in the original publication. From the table you may observe that the HR is not constant over time. This is general result and you may study the HR in different time points.
 
 In the NICE assessment "The committee noted that the company's choice of exponential extrapolation to model overall survival... The ERG stated that the uncertainty around the overall survival extrapolation even at 2 years is the main source of uncertainty in the cost effectiveness analyses, but the company's approach was plausible. " https://www.nice.org.uk/guidance/ta531/resources/pembrolizumab-for-untreated-pdl1positive-metastatic-nonsmallcell-lung-cancer-pdf-82606895901637
 Having now longer follow-up data at hand it seems that exponential distribution does not fit as well as log-logistic one. Moreover, it was back then standard to use piecewise approach: at first K-M data was used, which was continued by exponential distribution.
 <img width="971" height="742" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/kuvat/Pembro_res2.png" />
 
-3. EX3
+3. EX3 PFS curve tracking
 
 
 # Ver 2.0 add some genAI
 The end results of this app can be consired as building blocks of PSM. Progression Free Survival (PFS) curves could be handled as OS curves.
-1. GenAI to extract dosing regimen information from SmPCs?
-2. GenAI to extract comparative assessment results from Fimea, NICE etc.
+1. GenAI to perform screen capture automatically?
+2. GenAI to extract dosing regimen information from SmPCs?
+3. GenAI to extract comparative assessment results from Fimea, NICE etc.
