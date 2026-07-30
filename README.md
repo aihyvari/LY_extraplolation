@@ -1,35 +1,37 @@
 # Ver 1.0
-What I had in my mind was OS curves of a typical oncology drug in a non-curative setting (i.e. metastatic disease). Together with PFS curves, utilities and dosing and cost information these are often used to inform a Partitioned Survival Model (PSM) in health economic evaluations. In curative setting the modelling may be a bit different. 
+What I had in mind was OS curves of a typical oncology drug in a non-curative setting (i.e. metastatic disease). Together with PFS curves, utilities and dosing and cost information these are often used to inform a Partitioned Survival Model (PSM) in health economic evaluations. In a curative setting the modelling may be a bit different. 
 
-The first step is to focus on modelling life years gained, which is arguably the most important driver of the final result in the PSM. In addition, mechanistic cost calculation does not provide such artistic satisfaction, which is needed during the summer holiday.
+The first step is to focus on modelling life-years gained, which is arguably the most important driver of the final result in a PSM. In addition, mechanistic cost calculations does not provide such artistic satisfaction, which is needed during the summer holiday.
 
-While the app is created using the genAI tools of one of the tech giants the app itself is deterministic and even somewhat transparent. These coding tools are proprietary and I purchased the access to them myself. I also run the tools using my private laptop. All the examples and other data are available from public web and found by AI performing searches. In practice the code is R using interactive Shiny UI. Digitization is performed using the R package IPDfromKM: https://doi.org/10.1186/s12874-021-01308-8.
+While the app is created using the genAI tools of one of the tech giants the app itself is deterministic and even somewhat transparent. These coding tools are proprietary and I purchased the access to them myself. I also run the tools using my private laptop. All the examples and other data are available from public web and found by AI performing searches. In practice the code is R using interactive Shiny UI. Conversion of digitized point to patient level data is performed using the R package IPDfromKM: https://doi.org/10.1186/s12874-021-01308-8. Curve tracing logic is a code written by AI.
 As always there are various options with R / Python, but aforementioned package was proposed by AI. 
 
-### Step 1: get a Kaplan-Meier figure of overall survival OS & load the figure into the app
+### Step 1: get a Kaplan-Meier figure of overall survival (OS) & load the figure into the app
 preferably a good quality, high resolution figure of decent size.
-You may download it as a JPEG, PNG or another image format. In practise you may need to save captured image into your computer and use the option **Upload Local Image** instead of option **Load from URL**. The latter option needs more refinement as URLs typically contain other content besides the target image. Using a standard screenshot capture tool You may set the boundaries manually, save the image temporarily to Your compure and upload from there. Please, include the at-risk table below the figure as it is also utilized with Optical Character Recognition (OCR) feature.
+You may download it as a JPEG, PNG or another image format. In practice you may need to save captured image into your computer and use the option **Upload Local Image** instead of option **Load from URL**. The latter option needs more refinement as URLs typically contain other content besides the target image. Using a standard screenshot capture tool You can set the boundaries manually, save the image temporarily to Your computer and upload from there. Please, include the at-risk table below the figure as it is also utilized with Optical Character Recognition (OCR) feature.
 
-The app allows comparison of two curves from the same figure. That is, the comparison is limited to the treatment and control groups within the same trial, and indirect comparisons are not possible at the moment. The sample picture is automatically generated for illustration. 
+The app allows comparison of two curves from the same figure. That is, the comparison is limited to the treatment and control groups within the same trial, and indirect comparisons are not possible at the moment. The sample figure is automatically generated for illustration. 
 
 <img width="303" height="354" alt="loading" src="https://github.com/aihyvari/LY_extraplolation/blob/main/kuvat/lataus.png" />
 
  
 ### Step 2: calibrate the figure
-if automatic calibration fails do it manually by setting origin, X-max and Y-max by mouse.**Please, set also the X max value (the box on the left) manually according your image - this important for the calculations as the tick marks are considered relative to maximum!**
+if automatic calibration fails perform it manually by setting origin, X-max and Y-max using the mouse.**Please, set also the X max value (the box on the left) manually according to your image - this value is important for the calculations as the tick marks are considered relative to maximum!**
 
 <img width="1442" height="600" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/kuvat/calibration.png" />
 
 ### Step 3: Trace the curves
-Use automatic curve tracing or do it manually. Choose the active curve (treatment / control) from the dropdown menu and then trace it by selecting some point on the curve with your mouse. The autotrace should search the points along the curve. The autotrace implements a property of Kaplan-Meier (K-M) curves: when x increases y is non-increasing i.e. it follows the monotonicity property (at least I explicitely prompted the AI to implement this). If you are not satisfied with the result, retrace the curves and try again. Sometimes several attempts are required to achieve the desired result. I added a zoom feature and merge & stich feature to tracking. The latter allows one to keep the part of the curve where tracking was successful while trying again remaining parts. In principle, even point-wise manual tracking is possible. Also erase function was added for removing tails or other excess "tracked" points.
+Use automatic curve tracing or do it manually. Select the active curve (treatment / control) from the dropdown menu and then trace it by selecting some point on the curve with your mouse. The autotrace should search the points along the curve. The autotrace implements a property of Kaplan-Meier (K-M) curves: when x increases y is non-increasing i.e. it follows the monotonicity property. I explicitly prompted the AI to implement this and had an argument with AI until I realized that rows are numbered from top to bottom. 
+
+If you are not satisfied with the result, retrace the curves and try again. Sometimes several attempts are required to achieve the desired result. I added a zoom  and merge-stitch features to tracking. (Zoom needs to be refined!) The latter allows one to keep the part of the curve where tracking was successful while trying again remaining parts. In principle, even point-wise manual tracking is possible. Also erase function was added to remove tails or other incorrectly "tracked" excess points.
 
 <img width="1383" height="631" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/kuvat/track_curves.png" />
 
 
-### Step 4: reconstruct IPD - this step must be completed before moving on.
-From the previous traced K-M curves indivial patient data (IPD) are recreated. This data is then used for modelling.
-Please specify also the number of patients at the baseline and at-risk numbers at the different time points. This information usually appears as a number in the figure and at-risk table below the image. Click the **auto-extract at-risk (OCR)** button for performing OCR search of these numbers. However, if this information is not automatically extracted it should be manually fed. Otherwise, information will be lost even if the K-M curve visually appears similar to original one. So, please verify the result from OCR and fix if necessary.
-Finally click **Run IPD reconstruction** and admire figures accompanied by mysterious statistics.
+### Step 4: Reconstruct IPD - this step must be completed before moving on.
+From the previous traced K-M curves individual patient data (IPD) are recreated. This data is then used for modelling.
+Please specify also the number of patients at the baseline and numbers at-risk at different time points. This information usually appears as numbers in the figure and at-risk table below the image. Click the **auto-extract at-risk (OCR)** button for performing OCR search of these numbers. However, if this information is not automatically extracted it should be manually fed. Otherwise, information will be lost even if the K-M curve visually appears similar to the original one. So, please verify the result from OCR and fix if necessary.
+Finally, click **Run IPD reconstruction** and admire figures accompanied by mysterious statistics.
 
 <img width="390" height="600" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/kuvat/at-risk_tables.png" />
 
