@@ -3,7 +3,9 @@ What I had in mind was OS curves of a typical oncology drug in a non-curative se
 
 The first step is to focus on modelling life-years gained, which is arguably the most important driver of the final result in a PSM. In addition, mechanistic cost calculations does not provide such artistic satisfaction, which is needed during the summer holiday.
 
-While the app is created using the genAI tools of one of the tech giants the app itself is deterministic and even somewhat transparent. These coding tools are proprietary and I purchased the access to them myself. I also run the tools using my private laptop. All the examples and other data are available from public web and found by AI. In practice the code is R using interactive Shiny UI. Conversion of digitized point to patient level data is performed using the R package IPDfromKM: https://doi.org/10.1186/s12874-021-01308-8. Curve tracing logic is a code written by AI.
+While the app is created using the genAI tools of one of the tech giants the app itself is deterministic and even somewhat transparent. These coding tools are proprietary and I purchased the access to them myself. I also run the tools using my private laptop. All the examples and other data are available from public web and found by AI. As a further disclaimer, the purpose of this study is to map AI's capabilities rather than to provide guide for modelling.
+
+In practice the code is R using interactive Shiny UI. Conversion of digitized point to patient level data is performed using the R package IPDfromKM: https://doi.org/10.1186/s12874-021-01308-8. Curve tracing logic is a code written by AI.
 As always there are various options with R / Python, but aforementioned package was proposed by AI. 
 
 ### Step 1: get a Kaplan-Meier figure of overall survival (OS) & load the figure into the app
