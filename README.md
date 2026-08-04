@@ -45,9 +45,9 @@ You may apply tail trimming when fitting the models. Typically the tail of the K
 <img width="1775" height="755" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/kuvat/fits.png" />
 
 ### Step 6: Choose the best model for inspection - combined model comparison
-Choose one of the models for more detailed inspection. It doesn't have to be the same for the treatment and for the control. However, choosing different models for treatment and control typically requires additional justification. The figure is simplified as just the chosen models with their extrapolations are displayed alongside with the "raw" K-M curve.
+Choose one of the models for more detailed inspection. It doesn't have to be the same for the treatment and for the control. However, choosing different models for treatment and control typically requires additional justification. As we are interested about the difference between arms we do not want base our results to different **assumptions** about the distribution of arrival times. The figure is simplified as just the chosen models with their extrapolations are displayed alongside with the "raw" K-M curve.
 
-You may also study the (smoothed) raw hazards, based on reconstructed IPD, and compare them to the hazards implied by the model. Obviously, these two should match together. You may "zoom" the hasard plot by adjusting the x-axis scaler with the slider input. There is no zoom feature for Y-axis, but I noticed sometimes this would be beneficial.
+You may also study the (smoothed) raw hazards, based on reconstructed IPD, and compare them to the hazards implied by the model. Obviously, these two should match together. You may "zoom" the hazard plot by adjusting the x-axis scaler with the slider input. There is no zoom feature for Y-axis, but I noticed sometimes this would be beneficial. Also, note that treatment hazard is usually expected to smaller than the hazard in the control arm - so be careful with the colorcoding while interpreting the results.
 
 <img width="971" height="742" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/kuvat/final_res.png" />
 
@@ -82,11 +82,13 @@ In the NICE assessment TA531: *"The committee noted that the company's choice of
 Having now longer follow-up data at hand it seems that exponential distribution does not fit as well as log-logistic one. Moreover, it was back then standard to use piecewise approach: at first K-M data was used, which was continued by exponential distribution.
 <img width="971" height="742" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/kuvat/Pembro_res2.png" />
 
-3. EX3 PFS curve tracking
+3. **Crossing curves: Nivolumab vs docetaxel**
+Nivolumab versus Docetaxel in Advanced Non-squamous NSCLC (CheckMate 057) the OS curves cross implicating non-proportinal hazards. https://www.nejm.org/doi/full/10.1056/NEJMoa1507643
+Here you need to manually calibrate the figure as autocalibration failed. Curve tracing worked seemingly nicely at the first go. I just added one point near y-axis manually. OCR for at-risk table failed. Basically nivolumab numbers appeared in the control while control remained empty. I fixed this manually. Again the best statistical fit for treatment and that for the control are from different distributions. In this case it seems that none of the parametric models can replicate two second peak visible in the hazard plot of the treatment arm. In addition, the number at-risk falls in the end so that perhaps tail-trimming is necessary.  
 
 
 # Ver 2.0 add some genAI
 The end results of this app can be consired as building blocks of PSM. Progression Free Survival (PFS) curves could be handled as OS curves.
-1. GenAI to perform screen capture automatically?
+1. GenAI to perform screen capture automatically? Now one need to get around cloudflare etc.
 2. GenAI to extract dosing regimen information from SmPCs?
 3. GenAI to extract comparative assessment results from Fimea, NICE etc.
