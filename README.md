@@ -84,7 +84,8 @@ Having now longer follow-up data at hand it seems that exponential distribution 
 
 3. **Crossing curves: Nivolumab vs docetaxel**
 Nivolumab versus Docetaxel in Advanced Non-squamous NSCLC (CheckMate 057) the OS curves cross implicating non-proportinal hazards. https://www.nejm.org/doi/full/10.1056/NEJMoa1507643
-Here you need to manually calibrate the figure as autocalibration failed. Curve tracing worked seemingly nicely at the first go. I just added one point near y-axis manually. OCR for at-risk table failed. Basically nivolumab numbers appeared in the control while control remained empty. I fixed this manually. Again the best statistical fit for treatment and that for the control are from different distributions. In this case it seems that none of the parametric models can replicate two second peak visible in the hazard plot of the treatment arm. In addition, the number at-risk falls in the end so that perhaps tail-trimming is necessary.  
+Here you need to manually calibrate the figure as autocalibration failed. Curve tracing worked seemingly nicely at the first go. I just added one point near y-axis manually. OCR for at-risk table failed. Basically nivolumab numbers appeared in the control while control remained empty. I fixed this manually. Again the best statistical fit for treatment and that for the control are from different distributions. In this case it seems that none of the parametric models can replicate two second peak visible in the hazard plot of the treatment arm. In addition, the number at-risk falls in the end so that perhaps tail-trimming is necessary. I did try to trim from where under 10% remained at-risk. Still the parametric models can not replicated the hazard shape.
+<img width="700" height="500" alt="image" src="https://github.com/aihyvari/LY_extraplolation/blob/main/kuvat/Nivo_res.png" />
 
 
 # Ver 2.0 add some genAI
